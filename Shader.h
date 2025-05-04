@@ -20,7 +20,7 @@ public:
     Shader(const char* VSS, const char* PSS, const char* VS_Main, const char* PS_Main);
     ~Shader();
 
-    void SetVertexShader(const D3D11_INPUT_ELEMENT_DESC* layout);
+    void SetVertexShader(const D3D11_INPUT_ELEMENT_DESC* layout,int num);
     void SetPixelShader();
 };
 

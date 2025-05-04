@@ -65,12 +65,12 @@ Shader::~Shader()
     InputLayout->Release();
 }
 
-void Shader::SetVertexShader(const D3D11_INPUT_ELEMENT_DESC* layout)
+void Shader::SetVertexShader(const D3D11_INPUT_ELEMENT_DESC* layout,int num)
 {
     Device->CreateVertexShader(VSBlob->GetBufferPointer(), VSBlob->GetBufferSize(), nullptr, &VertexShader);
     Context->VSSetShader(VertexShader, nullptr, 0);
 
-    Device->CreateInputLayout(layout, 2, VSBlob->GetBufferPointer(), VSBlob->GetBufferSize(), &InputLayout);
+    Device->CreateInputLayout(layout,num, VSBlob->GetBufferPointer(), VSBlob->GetBufferSize(), &InputLayout);
     Context->IASetInputLayout(InputLayout);
     VSBlob->Release();
 }

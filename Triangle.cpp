@@ -8,20 +8,20 @@ extern ID3D11DeviceContext* Context;
 
 struct Triangle_Vertex {
     float x, y, z;    
-    float r, g, b;     
+    //float r, g, b;     
 };
 
-const D3D11_INPUT_ELEMENT_DESC Triangle_InputLayout[2] = {
+const D3D11_INPUT_ELEMENT_DESC Triangle_InputLayout[1] = {
     { "POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0, D3D11_INPUT_PER_VERTEX_DATA, 0 },
-    { "COLOR", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, 12, D3D11_INPUT_PER_VERTEX_DATA, 0}
+    //{ "COLOR", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, 12, D3D11_INPUT_PER_VERTEX_DATA, 0}
 };
 
 Triangle::Triangle(float* pos, float* color)
 {
     Triangle_Vertex vertices[] = {
-        {  pos[0],  pos[1], pos[2], color[0],  color[1], color[2] }, 
-        {  pos[3],  pos[4], pos[5], color[3],  color[4], color[5] }, 
-        {  pos[6],  pos[7], pos[8], color[6],  color[7], color[8] }, 
+        {  pos[0],  pos[1], pos[2]},//, color[0],  color[1], color[2] }, 
+        {  pos[3],  pos[4], pos[5]},//, color[3],  color[4], color[5] }, 
+        {  pos[6],  pos[7], pos[8]},//, color[6],  color[7], color[8] }, 
     };
 
     D3D11_BUFFER_DESC vbd = { 0 };
@@ -46,7 +46,7 @@ void Triangle::Draw()
     Shader shader = Shader("hlsl/Triangle.VS","hlsl/Triangle.PS",
                             "VS_Main","PS_Main");
 
-    shader.SetVertexShader(Triangle_InputLayout);   
+    shader.SetVertexShader(Triangle_InputLayout,1);   
     shader.SetPixelShader();                     
 
     UINT stride = sizeof(Triangle_Vertex);
