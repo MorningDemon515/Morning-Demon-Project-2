@@ -15,7 +15,7 @@ void Draw_Scene()
                     0.0f, 1.0f, 0.0f,
                     0.0f, 0.0f, 1.0f};                
 
-    Triangle tri = Triangle(pos,color);
+    Triangle tri = Triangle(pos);
     tri.Draw();
 }
 

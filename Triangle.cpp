@@ -16,7 +16,7 @@ const D3D11_INPUT_ELEMENT_DESC Triangle_InputLayout[1] = {
     //{ "COLOR", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, 12, D3D11_INPUT_PER_VERTEX_DATA, 0}
 };
 
-Triangle::Triangle(float* pos, float* color)
+Triangle::Triangle(float* pos)
 {
     Triangle_Vertex vertices[] = {
         {  pos[0],  pos[1], pos[2]},//, color[0],  color[1], color[2] }, 

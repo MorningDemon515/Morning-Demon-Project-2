@@ -9,7 +9,7 @@ private:
     ID3D11Buffer* VertexBuffer;
 
 public:    
-    Triangle(float* pos, float* color);
+    Triangle(float* pos);
     ~Triangle();
 
     void Draw();
